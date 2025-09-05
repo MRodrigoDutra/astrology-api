@@ -3,6 +3,14 @@ const http = require('http')
 const app = require('./app')
 
 /**
+ * Healthcheck endpoint
+ * (precisa vir antes de criar o servidor)
+ */
+app.get('/health', (req, res) => {
+  res.status(200).type('text/plain').send('ok')
+})
+
+/**
  * Create HTTP server.
  */
 const server = http.createServer(app)
