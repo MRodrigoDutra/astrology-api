@@ -2,6 +2,16 @@
 const http = require('http')
 const app = require('./app')
 
+/* DEBUG ROUTE */
+app.get('/_debug', (req, res) => {
+  res.json({
+    ok: true,
+    url: req.url,
+    now: new Date().toISOString(),
+    headers: req.headers
+  })
+})
+/* END DEBUG ROUTE */
 /**
  * Healthcheck endpoint
  * (precisa vir antes de criar o servidor)
